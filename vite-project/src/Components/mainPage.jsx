@@ -1,4 +1,8 @@
+import { useContext } from "react"
+
 function WelcomePage({theUser}) {
+    const loggedInUser = useContext(useContext)
+    const theUser = loggedInUser.user
     return <div>Welcome {theUser}</div>
 }
 

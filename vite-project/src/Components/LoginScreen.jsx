@@ -1,15 +1,23 @@
 import {useState} from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../Context/UserContext';
 
-export default function LoginScreen({setUser}){
-    const [userName,setUsername]=useState('')
+export default function LoginScreen(){
+    const {setUser} = useContext(UserContext)
+
+    const [userName, setUsername] = useState('')
 
     function loginUser(){
-        setUser('Chris')
+        setUser('username')
     }
     return<div>
         Username:
-        <input type="text" value={userName} onChange={(e) => setUsername(e.target.value)} >
-        </input>
-        <button style={{backgroundColor:'#ff66cc', color:'white'}} onClick={loginUser}>Login</button>
+        <input 
+            type="text"
+            value={userName}
+            onChange={(e) => setUsername(e.target.value)} ></input>
+        <button
+            style={{backgroundColor:'#ff66cc', color:'white'}}
+            onClick={loginUser}>Login</button>
     </div>
 }
