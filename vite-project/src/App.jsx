@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import MainPage from './Components/mainPage'
 import Footer from './Components/Footer'
+import LoginScreen from './Components/LoginScreen'
 
 function App() {
   const [user, setUser] = useState('Chris')
@@ -19,9 +20,12 @@ function App() {
         top:0, 
         left:0
         })}>
-      <div style={{ flexGrow: 1}}>
+      <div style={{ flexGrow: 1, display: 'flex', justifyContent:'center', alignItems:'center'}}>
+        {user != null ?
 
-      <MainPage user={user} />
+      <MainPage user={user} /> :
+      <LoginScreen setUser={setUser} />
+        }
       </div>
 
       <Footer user={user} setUser={setUser} />
